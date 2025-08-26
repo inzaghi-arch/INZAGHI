@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <script>
+        if (theme === "dark") {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            sessionStorage.setItem('theme', 'dark');
+            document.getElementById("theme-toggle").innerHTML = "✶&#xFE0E;";
+        } else if (theme === "light") {
+            document.documentElement.setAttribute('data-theme', 'light');
+            sessionStorage.setItem('theme', 'light');
+            document.getElementById("theme-toggle").innerHTML = "✶&#xFE0E;";
+        }
+    </script>
+    <title>Inzaghi</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Create two equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 33%;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive layout */
+        @media screen and (max-width: 1024px) {
+            .column {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="indexbg"></div>
+    <div class="content">
+        <div class="container" style="margin-bottom: 5vh">
+            <a class="main" style="font-size:1.05rem; margin-right: 2em;" href="./pages/blog.html">☀&#xFE0E; blog</a>
+            <a class="main" style="font-size:1.05rem; margin-right: 2em;" href="./pages/projects.html">✦&#xFE0E; works</a>
+            <a class="main" style="font-size:1.05rem;" href="./pages/notes.html">❉&#xFE0E; archive</a>
+            <button class="theme" id="theme-toggle" onclick="modeSwitcher()"></a>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <p class="index">who</p>
+                <p class="indexcopy">inzaghi</p>
+
+                <p class="index">what</p>
+                <p class="indexcopy">art</p>
+
+                <p class="index">where</p>
+                <p class="indexcopy">uae / bahrain</p>
+
+                <p class="index">how</p>
+                <p class="indexcopy">currently[ʷʰᵉⁿ﹖]</p>
+
+                <p class="index">currently</p>
+                <p class="indexcopy">do i actually want it or do i want others to see that i have it?</p>
+
+                <p class="index">last updated</p>
+                <p class="indexcopy" style="margin-bottom:1em">aug 26 2025</p>
+            </div>
+
+            <!-- spacer-->
+
+            <div class="column">
+                <p></p>
+            </div>
+
+            <div class="column">
+                <p class="index" style="margin-bottom: 1.7vh">blog</p>
+                <p class="indexcopy" style="margin-bottom: 2em; line-height: 140%;">
+                    <a class="index" href="pages/blogs/5.html" target="_blank">(5) Poem</a>
+                    <br>
+                    <a class="index" href="pages/blogs/4.html" target="_blank">(4) Your Name</a>
+                    <br>
+                    <a class="index" href="pages/blogs/3.html" target="_blank">(3) Life</a>
+                    <br>
+                    <a class="index" href="pages/blogs/2.html" target="_blank">(2) Butterfly</a>
+                    <br>
+                    <a class="index" href="pages/blogs/1.html" target="_blank">(1) Alive</a>
+                    <br>
+                </p>
+
+                <p class="index" style="margin-bottom: 1.7vh">archive</p>
+                
+                </p>
+
+        
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // this checks whether system dark mode is set 
+        let systemInitiatedDark = window.matchMedia("(prefers-color-scheme: dark)");
+        // this checks for session storage telling to override
+        // the system preferences 
+        let theme = sessionStorage.getItem('theme');
+
+        if (systemInitiatedDark.matches) {
+            document.getElementById("theme-toggle").innerHTML = "✶&#xFE0E;";
+        } else {
+            document.getElementById("theme-toggle").innerHTML = "✶&#xFE0E;";
+        }
+
+        function prefersColorTest(systemInitiatedDark) {
+            if (systemInitiatedDark.matches) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                document.getElementById("theme-toggle").innerHTML = "✶&#xFE0E;";
+                // this clears the session storage 
+                sessionStorage.setItem('theme', '');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                document.getElementById("theme-toggle").innerHTML = "✶&#xFE0E;";
+                sessionStorage.setItem('theme', '');
+            }
+        }
+        systemInitiatedDark.addListener(prefersColorTest);
+
+        function modeSwitcher() {
+            // it’s important to check for overrides again 
+            let theme = sessionStorage.getItem('theme');
+            // checks if reader selected dark mode 
+            if (theme === "dark") {
+                document.documentElement.setAttribute('data-theme', 'light');
+                sessionStorage.setItem('theme', 'light');
+                document.getElementById("theme-toggle").innerHTML = "✶&#xFE0E;";
+                // checks if reader selected light mode 
+            } else if (theme === "light") {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                sessionStorage.setItem('theme', 'dark');
+                document.getElementById("theme-toggle").innerHTML = "✶&#xFE0E;";
+                // checks if system set dark mode 
+            } else if (systemInitiatedDark.matches) {
+                document.documentElement.setAttribute('data-theme', 'light');
+                sessionStorage.setItem('theme', 'light');
+                document.getElementById("theme-toggle").innerHTML = "✶&#xFE0E;";
+                // the only option left is system set light mode
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                sessionStorage.setItem('theme', 'dark');
+                document.getElementById("theme-toggle").innerHTML = "✶&#xFE0E;";
+            }
+        }
+
+        if (theme === "dark") {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            sessionStorage.setItem('theme', 'dark');
+            document.getElementById("theme-toggle").innerHTML = "✶&#xFE0E;";
+        } else if (theme === "light") {
+            document.documentElement.setAttribute('data-theme', 'light');
+            sessionStorage.setItem('theme', 'light');
+            document.getElementById("theme-toggle").innerHTML = "✶&#xFE0E;";
+        }
+    </script>
+    
+</body>
+
+</html>
